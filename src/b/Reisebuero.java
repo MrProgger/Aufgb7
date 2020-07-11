@@ -1,7 +1,7 @@
 package b;
 
 public class Reisebuero extends Thread {
-    private String name;
+    private final String name;
     private final TicketAnbieter anbieter;
 
     Reisebuero(String name, TicketAnbieter anbieter) {
@@ -12,7 +12,8 @@ public class Reisebuero extends Thread {
     void warteAufKunde() {
         try {
             Thread.sleep(Math.round(1000 * Math.random()));
-        } catch (InterruptedException ignored) {
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 
